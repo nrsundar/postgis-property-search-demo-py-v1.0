@@ -9,12 +9,12 @@ Parameters:
   
   PostgreSQLVersion:
     Type: String
-    Default: '14'
+    Default: '15.4'
     Description: 'PostgreSQL engine version'
   
   DatabaseInstanceType:
     Type: String
-    Default: 'db.t3.medium'
+    Default: 'db.r6g.large'
     Description: 'Database instance type'
   
   BastionInstanceType:
@@ -192,34 +192,54 @@ Resources:
         Fn::Base64: !Sub |
           #!/bin/bash
           apt-get update
-          apt-get install -y postgresql-client git curl
-          # User will upload and run setup script manually
+          apt-get install -y postgresql-client git curl python3 python3-pip nodejs npm
+          
+          # Install application dependencies (no PostgreSQL server installation)
+          pip3 install psycopg2-binary boto3
+          
+          # Create demo script for RDS/Aurora connection
+          cat > /home/ubuntu/connect_to_database.sh << 'EOF'
+          #!/bin/bash
+          # Connect to Aurora PostgreSQL with PostGIS
+          echo "Connecting to Aurora PostgreSQL database..."
+          DB_ENDPOINT="${DatabaseCluster.Endpoint}"
+          psql postgresql://postgres:SecurePassword123!@$DB_ENDPOINT:5432/postgres
+          EOF
+          chmod +x /home/ubuntu/connect_to_database.sh
+          chown ubuntu:ubuntu /home/ubuntu/connect_to_database.sh
       Tags:
         - Key: Name
           Value: !Sub '${ProjectName}-bastion'
 
-  # RDS Database Instance
-  Database:
-    Type: AWS::RDS::DBInstance
+  # Aurora PostgreSQL Cluster
+  DatabaseCluster:
+    Type: AWS::RDS::DBCluster
     Properties:
-      DBInstanceIdentifier: !Sub '${ProjectName}-database'
-      DBInstanceClass: !Ref DatabaseInstanceType
-      Engine: postgres
+      DBClusterIdentifier: !Sub '${ProjectName}-aurora-cluster'
+      Engine: aurora-postgresql
       EngineVersion: !Ref PostgreSQLVersion
       MasterUsername: postgres
       MasterUserPassword: SecurePassword123!
-      AllocatedStorage: 100
-      StorageType: gp3
-      StorageEncrypted: true
-      VPCSecurityGroups:
+      VpcSecurityGroupIds:
         - !Ref DatabaseSecurityGroup
       DBSubnetGroupName: !Ref DatabaseSubnetGroup
       BackupRetentionPeriod: 7
-      DeleteAutomatedBackups: true
       DeletionProtection: false
+      StorageEncrypted: true
       Tags:
         - Key: Name
-          Value: !Sub '${ProjectName}-database'
+          Value: !Sub '${ProjectName}-aurora-cluster'
+
+  DatabaseInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: !Sub '${ProjectName}-aurora-instance'
+      DBInstanceClass: !Ref DatabaseInstanceType
+      Engine: aurora-postgresql
+      DBClusterIdentifier: !Ref DatabaseCluster
+      Tags:
+        - Key: Name
+          Value: !Sub '${ProjectName}-aurora-instance'
 
 Outputs:
   VPCId:
@@ -232,11 +252,11 @@ Outputs:
 
   DatabaseEndpoint:
     Description: Database endpoint
-    Value: !GetAtt Database.Endpoint.Address
+    Value: !GetAtt DatabaseCluster.Endpoint
 
   DatabasePort:
     Description: Database port
-    Value: !GetAtt Database.Endpoint.Port
+    Value: 5432
 
   SSHCommand:
     Description: SSH command to connect to bastion host
@@ -244,4 +264,8 @@ Outputs:
 
   DatabaseConnection:
     Description: Database connection string from bastion host
-    Value: !Sub 'postgresql://postgres:SecurePassword123!@${Database.Endpoint.Address}:5432/postgres'
+    Value: !Sub 'postgresql://postgres:SecurePassword123!@${DatabaseCluster.Endpoint}:5432/postgres'
+
+  PostGISSetupCommand:
+    Description: Command to enable PostGIS extension
+    Value: 'psql -c "CREATE EXTENSION IF NOT EXISTS postgis;" <connection_string>'

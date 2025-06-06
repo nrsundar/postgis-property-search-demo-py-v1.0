@@ -1,7 +1,7 @@
 # Demo Script for postgis-property-search-demo-py
 
 ## Overview
-Comprehensive demonstration of PostgreSQL 14 capabilities for Real Estate/Property Search.
+Comprehensive demonstration of PostgreSQL 15.4 capabilities for Real Estate/Property Search.
 
 ## Demo Flow (25 minutes)
 
@@ -11,7 +11,7 @@ Comprehensive demonstration of PostgreSQL 14 capabilities for Real Estate/Proper
 - Sample data loading
 
 ### Core Features (15 minutes)
-- PostgreSQL 14 advanced features
+- PostgreSQL 15.4 advanced features
 - Performance optimization techniques
 - Real-world use case demonstrations
 
@@ -21,11 +21,11 @@ Comprehensive demonstration of PostgreSQL 14 capabilities for Real Estate/Proper
 - Next steps discussion
 
 ## Key Value Propositions
-- Enhanced performance with PostgreSQL 14
+- Enhanced performance with PostgreSQL 15.4
 - Scalable architecture design
 - Production-ready implementation
 - Comprehensive monitoring and maintenance
 
 Generated for: Real Estate/Property Search
 Language: Python
-Database: PostgreSQL 14
+Database: PostgreSQL 15.4

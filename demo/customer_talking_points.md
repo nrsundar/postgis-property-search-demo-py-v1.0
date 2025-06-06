@@ -1,10 +1,10 @@
 # Customer Talking Points for postgis-property-search-demo-py
 
 ## Executive Summary
-Comprehensive PostgreSQL 14 solution for Real Estate/Property Search with production-ready implementation.
+Comprehensive PostgreSQL 15.4 solution for Real Estate/Property Search with production-ready implementation.
 
 ## Key Value Propositions
-- Enhanced performance with PostgreSQL 14
+- Enhanced performance with PostgreSQL 15.4
 - Scalable architecture for growing businesses
 - Production-ready deployment with best practices
 - Comprehensive support and documentation
@@ -35,4 +35,4 @@ Comprehensive PostgreSQL 14 solution for Real Estate/Property Search with produc
 
 Generated for: Real Estate/Property Search
 Language: Python
-Database: PostgreSQL 14
+Database: PostgreSQL 15.4

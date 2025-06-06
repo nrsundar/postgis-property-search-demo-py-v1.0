@@ -2,12 +2,12 @@
 
 ## PostgreSQL Demo - Real Estate/Property Search
 
-A comprehensive demonstration repository showcasing Real Estate/Property Search capabilities using PostgreSQL 14 with Python implementation.
+A comprehensive demonstration repository showcasing Real Estate/Property Search capabilities using PostgreSQL 15.4 with Python implementation.
 
 ### Features
 - ✅ CloudFormation Infrastructure as Code
 - ✅ Ubuntu Bastion Host Deployment  
-- ✅ PostgreSQL 14 with PostGIS
+- ✅ PostgreSQL 15.4 with PostGIS
 - ✅ Python Application Framework
 - ✅ Production-ready AWS Architecture
 - ✅ Comprehensive Learning Modules
@@ -35,10 +35,10 @@ chmod +x scripts/bastion-setup.sh
 ```bash
 # 1. Install PostgreSQL locally (Ubuntu/Debian)
 sudo apt update
-sudo apt install postgresql postgresql-contrib postgresql-14
+sudo apt install postgresql postgresql-contrib postgresql-15.4
 
 # 2. Install PostGIS extension
-sudo apt install postgis postgresql-14-postgis-3
+sudo apt install postgis postgresql-15.4-postgis-3
 
 # 3. Setup database
 sudo -u postgres createdb postgis-property-search-demo-py
@@ -80,4 +80,4 @@ This demo implements a production-ready PostgreSQL solution on AWS with:
 - Dataset Size: Handles 38GB+ property datasets
 - Concurrent Users: 1000+ simultaneous searches
 
-Generated on: 2025-06-06T03:32:54.637Z
+Generated on: 2025-06-06T03:45:06.191Z

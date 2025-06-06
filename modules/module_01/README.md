@@ -1,10 +1,10 @@
 # Module 01: Database Setup and Configuration
 
 ## Overview
-Setting up PostgreSQL 14 with PostGIS for real estate property search functionality.
+Setting up PostgreSQL 15.4 with PostGIS for real estate property search functionality.
 
 ## Objectives
-- Install and configure PostgreSQL 14
+- Install and configure PostgreSQL 15.4
 - Enable PostGIS spatial extensions
 - Create database schema for property data
 - Configure connection pooling and performance settings
@@ -16,13 +16,13 @@ Setting up PostgreSQL 14 with PostGIS for real estate property search functional
 
 ## Installation Steps
 
-### 1. Install PostgreSQL 14
+### 1. Install PostgreSQL 15.4
 ```bash
 # Update package list
 sudo apt update
 
-# Install PostgreSQL 14
-sudo apt install postgresql-14 postgresql-contrib-14
+# Install PostgreSQL 15.4
+sudo apt install postgresql-15.4 postgresql-contrib-15.4
 
 # Start and enable PostgreSQL service
 sudo systemctl start postgresql
@@ -32,7 +32,7 @@ sudo systemctl enable postgresql
 ### 2. Install PostGIS Extension
 ```bash
 # Install PostGIS for spatial data support
-sudo apt install postgresql-14-postgis-3
+sudo apt install postgresql-15.4-postgis-3
 
 # Install additional GIS tools
 sudo apt install postgis gdal-bin
@@ -58,7 +58,7 @@ SELECT PostGIS_Version();
 ```
 
 ### 4. Performance Configuration
-Edit `/etc/postgresql/14/main/postgresql.conf`:
+Edit `/etc/postgresql/15.4/main/postgresql.conf`:
 ```
 # Memory settings for property search workloads
 shared_buffers = 256MB
@@ -71,14 +71,14 @@ max_connections = 100
 ```
 
 ## Expected Outcomes
-- PostgreSQL 14 running and accessible
+- PostgreSQL 15.4 running and accessible
 - PostGIS extensions enabled
 - Database configured for spatial queries
 - Performance settings optimized
 
 ## Troubleshooting
 - Check service status: `sudo systemctl status postgresql`
-- View logs: `sudo tail -f /var/log/postgresql/postgresql-14-main.log`
+- View logs: `sudo tail -f /var/log/postgresql/postgresql-15.4-main.log`
 - Test connection: `sudo -u postgres psql -c "SELECT version();"`
 
 ## Next Steps

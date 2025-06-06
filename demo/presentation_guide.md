@@ -1,7 +1,7 @@
 # Presentation Guide for postgis-property-search-demo-py
 
 ## Overview
-Professional presentation guide for demonstrating PostgreSQL 14 capabilities for Real Estate/Property Search.
+Professional presentation guide for demonstrating PostgreSQL 15.4 capabilities for Real Estate/Property Search.
 
 ## Pre-Demo Checklist
 - Environment setup and testing
@@ -13,7 +13,7 @@ Professional presentation guide for demonstrating PostgreSQL 14 capabilities for
 
 ### Introduction (5 minutes)
 - Project overview and objectives
-- PostgreSQL 14 capabilities
+- PostgreSQL 15.4 capabilities
 - Expected outcomes and benefits
 
 ### Technical Demonstration (20 minutes)
@@ -28,7 +28,7 @@ Professional presentation guide for demonstrating PostgreSQL 14 capabilities for
 - Define follow-up actions
 
 ## Key Value Propositions
-- Enhanced performance with PostgreSQL 14
+- Enhanced performance with PostgreSQL 15.4
 - Scalable architecture design
 - Production-ready implementation
 - Comprehensive support and maintenance
@@ -41,4 +41,4 @@ Professional presentation guide for demonstrating PostgreSQL 14 capabilities for
 
 Generated for: Real Estate/Property Search
 Language: Python
-Database: PostgreSQL 14
+Database: PostgreSQL 15.4
