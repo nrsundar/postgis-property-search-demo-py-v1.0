@@ -4,6 +4,53 @@
 
 A comprehensive, production-ready demonstration showcasing Real Estate/Property Search capabilities using Aurora PostgreSQL 15.4 with PostGIS extension and Python implementation on AWS.
 
+## ⚠️ IMPORTANT DISCLAIMERS
+
+### 🚨 AWS Costs Warning
+**This deployment will incur AWS charges. You are responsible for all costs.**
+
+**Estimated Monthly Costs (us-east-1):**
+- Bastion Host (t3.micro): ~$8-12/month
+- Database (Aurora PostgreSQL cluster): ~$150-300/month
+- Storage (100GB): ~$10-15/month
+- Data Transfer: ~$5-10/month
+- **Total Estimated: $175-340/month**
+
+**Cost Management:**
+- Monitor spending with AWS Cost Explorer
+- Set up billing alerts for your account
+- Delete resources when not needed using cleanup scripts
+- Consider using development instance types for learning
+
+### 🧪 Development & Testing Only
+**This code is for learning and demonstration purposes.**
+
+**Before Production Use:**
+- Thoroughly test all components in your environment
+- Review security configurations for your requirements
+- Validate performance under your workload
+- Implement proper backup and disaster recovery
+- Review and adjust resource sizing
+- Conduct security audits and penetration testing
+
+### 👤 Repository Ownership & Maintenance
+**You own and maintain this generated repository.**
+
+**Your Responsibilities:**
+- Security updates and patches
+- Monitoring and maintenance
+- Backup and disaster recovery
+- Compliance with your organization's policies
+- Cost management and optimization
+- Documentation updates
+
+### 📄 License
+**This generated code is released under MIT License.**
+
+See LICENSE file for complete terms. All code is provided AS IS without warranty.
+
+**By proceeding, you acknowledge understanding of these disclaimers and accept full responsibility for costs, testing, and maintenance.**
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -692,7 +739,7 @@ psql -h $DB_ENDPOINT -U postgres postgis_property_search_demo_py < backup_202312
 
 ---
 
-**Generated on**: 2025-06-06T15:15:46.347Z
+**Generated on**: 2025-06-06T15:59:32.406Z
 **Version**: 1.0.0
 **Tested on**: AWS us-east-1
 **PostgreSQL Version**: 15.4
