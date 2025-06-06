@@ -80,4 +80,4 @@ This demo implements a production-ready PostgreSQL solution on AWS with:
 - Dataset Size: Handles 38GB+ property datasets
 - Concurrent Users: 1000+ simultaneous searches
 
-Generated on: 2025-06-06T03:45:06.191Z
+Generated on: 2025-06-06T04:11:37.609Z
