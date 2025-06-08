@@ -1,2 +1,1 @@
-# Code example for module 1
-print("Module 1 example")
+# Property search code example for module 1

@@ -23,7 +23,7 @@ A comprehensive, production-ready demonstration showcasing Real Estate/Property 
 - Consider using development instance types for learning
 
 ### 🧪 Development & Testing Only
-**This code is for learning and demonstration purposes.**
+**Demo generated for educational and prototyping use. Users should review and customize before deploying to production.**
 
 **Before Production Use:**
 - Thoroughly test all components in your environment
@@ -111,7 +111,7 @@ This repository provides a complete, end-to-end PostgreSQL demonstration environ
 │                      Private Subnets                             │
 │  ┌─────────────────────────────────────────────────────────────┐ │
 │  │            Aurora PostgreSQL Cluster                       │ │
-│  │              PostgreSQL 15.4 + PostGIS                        │ ││  │         (Writer + Reader Instances)                     │ │
+│  │        PostgreSQL 15.4 + PostGIS                    │ ││  │         (Writer + Reader Instances)                     │ │
 │  └─────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -739,7 +739,7 @@ psql -h $DB_ENDPOINT -U postgres postgis_property_search_demo_py < backup_202312
 
 ---
 
-**Generated on**: 2025-06-06T15:59:32.406Z
+**Generated on**: 2025-06-08T14:20:05.605Z
 **Version**: 1.0.0
 **Tested on**: AWS us-east-1
 **PostgreSQL Version**: 15.4
